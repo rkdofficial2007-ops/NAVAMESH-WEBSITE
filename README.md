@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Team NAVAMESH Official Web Application
 
-## Getting Started
+A full-stack, production-grade Next.js (App Router) web application for **Team NAVAMESH** (Smart India Hackathon 2025 Grand Finalist & Multi-Ideathon Winner).
 
-First, run the development server:
+Built with a futuristic cyberpunk aesthetic (`#050505` pitch black + `#39FF14` neon green), secure server-side API architecture, JWT authentication with HTTP-only cookies, and instant Vercel deployment support.
+
+---
+
+## ⚡ Features
+
+1. **Cyberpunk UI & Visual Identity**:
+   - High-voltage `#39FF14` neon accents, ambient radial glows, and dark mode aesthetic.
+   - Typography powered by Google Fonts: `Rajdhani` (geometric tech headings) and `Inter` (readable UI body).
+   - Fully responsive for mobile, tablet, and widescreen monitors.
+
+2. **Official Media & Verified Credentials**:
+   - Official team photography and "The Journey" 4-phase field progression images bundled in `/public/assets`.
+   - Unified 8-page verified certificate PDF (`/public/assets/SIH-certificates.pdf`) viewable via modal viewer or full-screen direct link.
+
+3. **Backend & Secure Architecture (Zero Key Leaks)**:
+   - Server-side API endpoints (`/api/auth/*` and `/api/contact`).
+   - Secure authentication via Jose (HS256 JWT) stored in signed `httpOnly`, `sameSite: lax` cookies.
+   - All secret keys, admin credentials, and third-party API keys (e.g. Resend) live strictly in environment variables on the server.
+
+4. **Dedicated Pages**:
+   - `/` : Dynamic Hero, metric counters (8+ podiums, 5+ wins), featured recognitions, "The Journey" gallery.
+   - `/achievements` : Filterable catalog across National Level, Ideathons, Robotics & AI, FinTech, and Startup Pitches with live certificate modal.
+   - `/projects` : Deep-dive into technical prototypes (Sub-rubble Radar, OMNIARM 6-DOF, Insect Kinematics Digital Twin, Microplastic Monitor).
+   - `/contact` : Contact form with backend API handler, email link, and Instagram social link.
+   - `/admin` : Command center dashboard protected by JWT session authentication.
+
+---
+
+## 🚀 How to Run Locally
 
 ```bash
+# 1. Navigate to the project directory
+cd navamesh-web
+
+# 2. Install dependencies (if not already installed)
+npm install
+
+# 3. Create .env.local (already provided in repository)
+cp .env.example .env.local
+
+# 4. Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔑 Admin Credentials (Default)
 
-## Learn More
+- **Admin Email**: `navameshofficial@gmail.com`
+- **Master Password**: `Navamesh@2026!Master`
 
-To learn more about Next.js, take a look at the following resources:
+*(You can customize these in `.env.local` or directly in your Vercel Project Settings).*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 One-Click Deployment to Vercel
 
-## Deploy on Vercel
+### Option 1: Via GitHub (Recommended)
+1. Push this folder to a GitHub repository:
+   ```bash
+   git add .
+   git commit -m "feat: complete team navamesh full-stack website"
+   git remote add origin https://github.com/<YOUR_USERNAME>/navamesh-web.git
+   git branch -M main
+   git push -u origin main
+   ```
+2. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
+3. Import your `navamesh-web` repository.
+4. Add the following **Environment Variables** in Vercel:
+   - `JWT_SECRET`: Any random 32+ character string
+   - `ADMIN_EMAIL`: `navameshofficial@gmail.com`
+   - `ADMIN_PASSWORD`: Your desired admin master password
+5. Click **Deploy**. Vercel will build and deploy it with a global edge CDN in under 1 minute.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Option 2: Via Vercel CLI
+```bash
+npm install -g vercel
+vercel
+```
+Follow the interactive prompts and accept default settings.
